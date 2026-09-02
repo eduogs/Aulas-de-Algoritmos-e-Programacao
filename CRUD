@@ -1,0 +1,15 @@
+Ideia do CRUD:
+
+A minha ideia do CRUD é, criar um sistema que não precise de funcionários nos postos de gasolina
+
+O CADASTRO:
+ Primeiramente o um responsável pelas movimentações do posto faça os seguintes cadastro
+(preço, produtos, funcionários, bomba, bico, data, hora, quantidade, litragem, entradas e saída de dinheiro como pix
+débito/crédito, ou cédula), para que fiquei dentro das regulamentações de cadastro sem que haja perigo de roubos ou
+furtos na empresa.
+
+FUNCIONAMENTO:
+ Esse sistema, terá como principal característica a falta da necessidade de terceiros para abastecer seu automóvel,
+diante disso, o cliente colocará a quantidade de dinheiro e a forma que deseja pagar pelo combustível e haverá um calculo no back-end, 
+que libera a quantidade exata de combustível na bomba que foi feito o pagamento e no bico selecionado, ou ela opta pela 
+litragem que desejar colocar, o sistema calculará o valor que a ser pago pela quantidade de gasolina selecionada.
