@@ -1,42 +1,38 @@
 Ideia do CRUD:
 
-Objetivo
-
+OBJETIVO:
 Permitir que o usuário monte e gerencie sua lista de compras no celular, adicionando itens, editando, marcando o que já foi 
 comprado e removendo o que não precisa mais — substituindo o papel ou o bloco de notas. O foco é rapidez: adicionar um item 
 deve levar menos de 5 segundos.
 
 TIPOS DE DADOS:
-id	int
-nome	string	
-quantidade	int	
-unidade	string	
-categoria	string	
-preco_estimado	float
-comprado	bool
+Nome: string	
+Quantidade: int	
+Unidade: string	
+Categoria: string	
+Preço estimado: float
+Comprado: bool
 
-Funcionalidades (o CRUD)
+FUNCIONALIDADE:
+Adicionar item digitando o nome e
+Ver a lista completa, com itens pendentes em cima e comprados embaixo (riscados)
+Editar nome/quantidade/preço de um item 
+Excluir um item deslizanado para o lado ou segurar
 
-	Adicionar item digitando o nome e, opcionalmente, quantidade/unidade/preço
-	Ver a lista completa, com itens pendentes em cima e comprados embaixo (riscados)
-Update	Editar nome/quantidade/preço de um item e marcar/desmarcar como comprado
-Delete	Excluir um item (deslizar para o lado ou segurar)
-
-. Requisitos funcionais
+REQUISITOS FUCIONAIS:
 RF01 — O sistema deve permitir cadastrar um item informando ao menos o nome.
-RF02 — O sistema deve exibir todos os itens da lista ordenados por status (pendentes primeiro) e depois por data de criação.
-RF03 — O sistema deve permitir editar qualquer campo de um item já cadastrado.
-RF04 — O sistema deve permitir marcar e desmarcar um item como comprado com um toque.
-RF05 — O sistema deve permitir excluir um item individualmente, pedindo confirmação.
-RF06 — O sistema deve permitir excluir de uma vez todos os itens marcados como comprados.
-RF07 — O sistema deve exibir o contador de itens (ex.: "4 de 12 comprados").
-RF08 — O sistema deve calcular e exibir o valor total estimado dos itens que têm preço preenchido.
-RF09 — O sistema deve permitir buscar/filtrar itens pelo nome.
-RF10 — O sistema deve salvar os dados automaticamente, sem botão "salvar lista".
+RF02 — O sistema deve permitir editar qualquer campo de um item já cadastrado.
+RF03 — O sistema deve permitir marcar e desmarcar um item como comprado com um toque.
+RF04 — O sistema deve permitir excluir um item individualmente, pedindo confirmação.
+RF05 — O sistema deve permitir excluir de uma vez todos os itens marcados como comprados.
+RF06 — O sistema deve exibir o contador de itens (ex.: "4 de 12 comprados").
+RF07 — O sistema deve calcular e exibir o valor total estimado dos itens que têm preço preenchido.
+RF08 — O sistema deve permitir buscar/filtrar itens pelo nome.
 
-5. Regras de negócio
-RN01 — O nome do item é obrigatório e não pode ser vazio ou só espaços.
-RN02 — Não é permitido cadastrar dois itens com o mesmo nome na mesma lista; se o usuário tentar, o app soma a quantidade ao item existente.
+
+REGRAS DE NEGÓCIO:
+RN01 - O nome do item é obrigatório e não pode ser vazio ou só espaços.
+RN02 — Não é permitido cadastrar dois itens com o mesmo nome na mesma lista; se o usuário tentar, o app diz que já existe.
 RN03 — A quantidade deve ser um número inteiro maior que zero. Se o usuário não informar, assume 1.
 RN04 — O preço estimado, se informado, deve ser maior ou igual a zero e ter no máximo 2 casas decimais.
 RN05 — Item marcado como comprado vai para o fim da lista, com texto riscado e em cor esmaecida.
