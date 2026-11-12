@@ -1,8 +1,6 @@
 #lista de compras
 
 # CRUD simples de lista de compras
-# Sem funcoes: so while, for e if
-# A lista tem 50 espacos fixos. Espaco vazio ("") significa livre.
 
 tamanho = 50
 nomes = [""] * 50
