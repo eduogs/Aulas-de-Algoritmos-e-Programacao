@@ -24,14 +24,14 @@ while opcao != "5":
 
         adicionado = False
         i = 0
-        while i < tamanho and adicionado == False:
-            if nomes[i] == "":
-                nomes[i] = nome
-                quantidades[i] = quantidade
+        while i < TAMANHO and not adicionado:
+            if nomes [i] == "":
+                nomes [i] = nome
+                quantidades [i] = quantidade
                 adicionado = True
-            i = i + 1
+            i += 1
 
-        if adicionado == True:
+        if adicionado:
             print("Item adicionado!")
         else:
             print("A lista esta cheia.")
@@ -44,7 +44,7 @@ while opcao != "5":
             if nome != "":
                 print("- " + nome + " (qtd: " + quantidades[i] + ")")
                 tem_item = True
-            i = i + 1
+            i += 1 
 
         if tem_item == False:
             print("A lista esta vazia.")
@@ -55,19 +55,19 @@ while opcao != "5":
 
         encontrado = False
         i = 0
-        while i < tamanho and encontrado == False:
+        while i < TAMANHO and not encontrado:
             if nomes[i] == busca:
                 novo_nome = input("Novo nome: ")
                 nova_quantidade = input("Nova quantidade: ")
                 nomes[i] = novo_nome
                 quantidades[i] = nova_quantidade
                 encontrado = True
-            i = i + 1
+            i +=1 
 
         if encontrado == True:
             print("Item atualizado!")
         else:
-            print("Item nao encontrado.")
+            print("Item não encontrado.")
 
     # remove
     elif opcao == "4":
@@ -75,14 +75,14 @@ while opcao != "5":
 
         encontrado = False
         i = 0
-        while i < tamanho and encontrado == False:
+        while i < TAMANHO and not encontrado:
             if nomes[i] == busca:
                 nomes[i] = ""
                 quantidades[i] = ""
                 encontrado = True
-            i = i + 1
+            i += 1
 
-        if encontrado == True:
+        if encontrado:
             print("Item removido!")
         else:
             print("Item nao encontrado.")
