@@ -2,9 +2,9 @@
 
 # CRUD simples de lista de compras
 
-tamanho = 50
-nomes = [""] * 50
-quantidades = [""] * 50
+TAMANHO= 50
+nomes = [""] * TAMANHO
+quantidades = [""] * TAMANHO
 opcao = ""
 
 while opcao != "5":
