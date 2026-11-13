@@ -8,7 +8,7 @@ deve levar menos de 5 segundos.
 TIPOS DE DADOS:
 Nome: string	
 Quantidade: int	
-Unidade: string	
+Unidade: float	
 Categoria: string	
 Preço estimado: float
 Comprado: bool
@@ -25,9 +25,8 @@ RF02 — O sistema deve permitir editar qualquer campo de um item já cadastrado
 RF03 — O sistema deve permitir marcar e desmarcar um item como comprado com um toque.
 RF04 — O sistema deve permitir excluir um item individualmente, pedindo confirmação.
 RF05 — O sistema deve permitir excluir de uma vez todos os itens marcados como comprados.
-RF06 — O sistema deve exibir o contador de itens (ex.: "4 de 12 comprados").
-RF07 — O sistema deve calcular e exibir o valor total estimado dos itens que têm preço preenchido.
-RF08 — O sistema deve permitir buscar/filtrar itens pelo nome.
+RF06 — O sistema deve calcular e exibir o valor total estimado dos itens que têm preço preenchido.
+RF07 — O sistema deve permitir buscar/filtrar itens pelo nome.
 
 
 REGRAS DE NEGÓCIO:
