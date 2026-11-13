@@ -91,4 +91,4 @@ while opcao != "5":
         print("Ate mais!")
 
     else:
-        print("Opcao invalida, tente de novo.")
+        print("Opcao inválida, tente de novo.")
