@@ -24,13 +24,13 @@
 | Campo | Preencha |
 |---|---|
 | **Nome do estudante** | Eduardo Oliveira Gomes|
-| **Curso / Módulo** | _ex.: ADS · 2º período_ |
+| **Curso / Módulo** | _ex.: ENG. DE SOFTWARE · 2º período_ |
 | **Unidade curricular** | Algoritmos e Programação — UnDB 2026.2 |
 | **Professor** | Rondineli Seba Salomão |
-| **App-base do meu CRUD** | _ex.: um app de delivery, um app de músicas…_ |
+| **App-base do meu CRUD** | um app de lista de compras |
 | **Link do meu repositório** | _https://github.com/…_ |
-| **Dupla de revisão (Campo 05)** | _nome do colega cujo CRUD vou revisar / que revisa o meu_ |
-| **Função neste ciclo** | _Autor do meu CRUD · Revisor do CRUD de um colega_ |
+| **Dupla de revisão (Campo 05)** | Samuel Denzel / Samuel Denzel |
+| **Função neste ciclo** |Eduardo Oliveira Gomes · Revisor do CRUD de um colega_ |
 
 ---
 
@@ -163,8 +163,8 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 > **Sugestão de ordem:** (1) Identificação → (2) **Campo 01 primeiro, sem consulta** → (3) Registros dos Ciclos 01 a 04 → (4) Campo 02, com pesquisa.
 
 **Checklist do Grupo 1**
-- [ ] Identificação preenchida (app-base, link do repositório, dupla de revisão)
-- [ ] Campo 01: 3 objetos de conhecimento, 3 lacunas, hipótese de até 5 linhas
+- [x] Identificação preenchida (app-base, link do repositório, dupla de revisão)
+- [x] Campo 01: 3 objetos de conhecimento, 3 lacunas, hipótese de até 5 linhas
 - [ ] Registros dos Ciclos 01, 02, 03 e 04 com os 7 itens
 - [ ] Campo 02: 2 referências com contribuição, hipótese revisada, 3 recursos
 - [ ] Commits no GitHub e painel atualizado
@@ -182,13 +182,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 01 — 12/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Planejamento da ideia e escolha do projeto
+2. **O que implementei (commits / arquivos / links):** Houve implementação das váriaveis e dos `print`, arquivos disponíveis `aula1208.py`.
+3. **Objeto(s) de conhecimento mobilizado(s):** Variavéis guardam valores na qual você atribiu a ele, podendo alterar o resultado dele seja para `int`, `float` ou `str`.
+4. **Desvio ou erro encontrado + causa técnica:** Uma variaável não pode conter caracteres específicos, pois alguns deles tem valor em Python como `@`,`-`, `!`, `%`.
+5. **Decisão de ajuste + fonte:** A decisão foi baseada nos conceitos de sintaxe da linguagem, dada em sala de aula após uma breve explicação sobre *caracteres especiais*.
+6. **Feedback recebido e o que mudei:** O que foi alterado foi de `nome-da-mensagem` para `nome`, isso nos resultou em uma melhor vizualização da variável e um nome bem mais fácil de entender.
+7. **Próximo passo:** Aprender os tipos de dados e entrada e saída.
 
 ## 🟢 CICLO 02 — 19/08 — Variáveis, tipos de dados e entrada/saída
 
@@ -213,19 +213,18 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 *Grupo 1 | Prazo segunda 16/11, 23h59 | SEM CONSULTA*
 
 **1a. Objetos de conhecimento identificados (mínimo 3, com vocabulário técnico):**
-1. _…_
-2. _…_
-3. _…_
-4. _…_ *(opcional)*
+1. Dados do tipo `float`, `int` e `str`.
+2. Entrada e saída de dados 
+3. Processamento do `input` do usuário.
 
 **1b. Lacunas — o que não sei e preciso descobrir (mínimo 3, com precisão técnica):**
-1. _…_
-2. _…_
-3. _…_
+1. Dados do tipo `bool` .
+2. Alterar resultado da entrada.
+3. Atribuições de valores das variáveis.
 
 **1c. Hipótese inicial em até 5 linhas — com lógica da área de formação:**
 
-> _…_
+> A hipótese inicial era fazer apenas uma lista simples de compras, mostrando apenas o que o usuário dejeja comprar, com funções domente de `append` e `remove`. Perante isso, passei a usar laços de repetição `while`, pois ele continua rodando enquanto a condição programada pelo desenvolvedor continua sendo verdadeira. Notei que ultilizar `if`, `elif` e `else`, facilitaria demasiadamente, pois ele quando uma condição passa de ser verdadeira, ou o elif ou o else, dá continuidade no processo de adicionar ou remover coisas da lista. 
 
 ### 🧩 CAMPO 02 — Aprofundamento pós-aula
 *AV Qualis — Grupo 1 | Segunda 16/11, 23h59*
@@ -270,14 +269,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 03 — 26/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
+1. **Desafio do ciclo (em 1 frase):** Saber como e quando utilizar laços de repetições e diferenciar valores de atribuição e comparação.
+2. **O que implementei (commits / arquivos / links):** `aula2008.py`
+3. **Objeto(s) de conhecimento mobilizado(s):**  Aprendi que conseguimos de maneira prática fazer uma comparação em valores utilizando o algorítmos de operações aritméticas.
+4. **Desvio ou erro encontrado + causa técnica:** Um erro encontrado foi que aspas é dado com string, e nisso quando atribuí no exercício 3, apresentava erro de sintaxe.
+5. **Decisão de ajuste + fonte:** A decisão de ajuste foi corrijida perante a explicação em https://docs.python.org/3/tutorial/datastructures.html, pois um sempre é recebido com string, a menos que altere o tipo de recpção dele.
+6. **Feedback recebido e o que mudei:** Mudei de "30" para 30, notei que ficou muito mais fácil de entender pois a sintaxe estava correta.
+7. **. **Próximo passo:** Aprender a como manusear corretamente as condições do `while`.
 ## 🟢 CICLO 04 — 02/09 — Estruturas condicionais: `if`, `elif`, `else`
 
 <details>
@@ -291,13 +289,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 04 — 02/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Compreender como usar corretamente `if`, `elif` e `else`.  
+2. **O que implementei (commits / arquivos / links):** `misto2.py`
+3. **Objeto(s) de conhecimento mobilizado(s):** Aprendi que enquando o `if` continua sendo verdadeiro ele continua rodando, caso passe a deixar de ser uma condição verdadeira o `else`, é a segunda opção de rodar o código, caso passe a deixar de ser verdadeira, o `elif` é a terceira opção até o laço `while` terminar o seu processo.
+4. **Desvio ou erro encontrado + causa técnica:** Percebi que as condições devem estar alinhadas a um linha verticalmente para que as condições interajam entre si, se elas não estiverem alinhadas, a sintaxe do ligueagem Pyhton passa a estar incoerente.
+5. **Decisão de ajuste + fonte:** O ajuste foi feito de maneira bem prática já que as linhas estavam em lugares onde não haviam possibilidade de ter uma interação com o propósito do código.
+6. **Feedback recebido e o que mudei:** Corriji o erro do alinhamento das linhas de interação do laço `while`, e deixei de forma que tanto o `if`, `elif` e `else` interajam entre si.
+7. **Próximo passo:** Aprender condicionais aos operadores lógicos.
 
 ---
 
