@@ -24,7 +24,7 @@
 | Campo | Preencha |
 |---|---|
 | **Nome do estudante** | Eduardo Oliveira Gomes|
-| **Curso / Módulo** | _ex.: ENG. DE SOFTWARE · 2º período_ |
+| **Curso / Módulo** |: ENG. DE SOFTWARE · 2º período_ |
 | **Unidade curricular** | Algoritmos e Programação — UnDB 2026.2 |
 | **Professor** | Rondineli Seba Salomão |
 | **App-base do meu CRUD** | um app de lista de compras |
