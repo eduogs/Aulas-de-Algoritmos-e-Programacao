@@ -270,12 +270,12 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 #### Registro do Ciclo 03 — 26/08
 1. **Desafio do ciclo (em 1 frase):** Saber como e quando utilizar laços de repetições e diferenciar valores de atribuição e comparação.
-2. **O que implementei (commits / arquivos / links):** `aula2008.py`
+2. **O que implementei (commits / arquivos / links):** `aula2608.py`
 3. **Objeto(s) de conhecimento mobilizado(s):**  Aprendi que conseguimos de maneira prática fazer uma comparação em valores utilizando o algorítmos de operações aritméticas.
 4. **Desvio ou erro encontrado + causa técnica:** Um erro encontrado foi que aspas é dado com string, e nisso quando atribuí no exercício 3, apresentava erro de sintaxe.
-5. **Decisão de ajuste + fonte:** A decisão de ajuste foi corrijida perante a explicação em https://docs.python.org/3/tutorial/datastructures.html, pois um sempre é recebido com string, a menos que altere o tipo de recpção dele.
+5. **Decisão de ajuste + fonte:** A decisão de ajuste foi corrijida perante a explicação em https://docs.python.org/3/tutorial/datastructures.html, pois um sempre é recebido com string, a menos que altere o tipo de recepção dele.
 6. **Feedback recebido e o que mudei:** Mudei de "30" para 30, notei que ficou muito mais fácil de entender pois a sintaxe estava correta.
-7. **. **Próximo passo:** Aprender a como manusear corretamente as condições do `while`.
+7. **Próximo passo:** Aprender a como manusear corretamente as condições do `while`.
 ## 🟢 CICLO 04 — 02/09 — Estruturas condicionais: `if`, `elif`, `else`
 
 <details>
@@ -291,10 +291,10 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 #### Registro do Ciclo 04 — 02/09
 1. **Desafio do ciclo (em 1 frase):** Compreender como usar corretamente `if`, `elif` e `else`.  
 2. **O que implementei (commits / arquivos / links):** `misto2.py`
-3. **Objeto(s) de conhecimento mobilizado(s):** Aprendi que enquando o `if` continua sendo verdadeiro ele continua rodando, caso passe a deixar de ser uma condição verdadeira o `else`, é a segunda opção de rodar o código, caso passe a deixar de ser verdadeira, o `elif` é a terceira opção até o laço `while` terminar o seu processo.
-4. **Desvio ou erro encontrado + causa técnica:** Percebi que as condições devem estar alinhadas a um linha verticalmente para que as condições interajam entre si, se elas não estiverem alinhadas, a sintaxe do ligueagem Pyhton passa a estar incoerente.
+3. **Objeto(s) de conhecimento mobilizado(s):** Aprendi que enquando o `if` continua sendo verdadeiro ele continua rodando, caso passe a deixar de ser uma condição verdadeira o `else`, é a segunda opção de rodar o código, caso passe a deixar de ser verdadeira, o `elif` é a terceira opção, até o laço `while` terminar o seu processo.
+4. **Desvio ou erro encontrado + causa técnica:** Percebi que as condições devem estar identadas a um linha verticalmente para que as condições interajam entre si, se elas não estiverem alinhadas, a sintaxe do ligueagem Pyhton passa a estar incoerente.
 5. **Decisão de ajuste + fonte:** O ajuste foi feito de maneira bem prática já que as linhas estavam em lugares onde não haviam possibilidade de ter uma interação com o propósito do código.
-6. **Feedback recebido e o que mudei:** Corriji o erro do alinhamento das linhas de interação do laço `while`, e deixei de forma que tanto o `if`, `elif` e `else` interajam entre si.
+6. **Feedback recebido e o que mudei:** Corriji o erro de identação das linhas de interação do laço `while`, e deixei de forma que tanto o `if`, `elif` e `else` interajam entre si.
 7. **Próximo passo:** Aprender condicionais aos operadores lógicos.
 
 ---
