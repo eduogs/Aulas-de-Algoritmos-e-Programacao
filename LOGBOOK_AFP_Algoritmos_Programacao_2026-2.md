@@ -28,7 +28,7 @@
 | **Unidade curricular** | Algoritmos e Programação — UnDB 2026.2 |
 | **Professor** | Rondineli Seba Salomão |
 | **App-base do meu CRUD** | um app de lista de compras |
-| **Link do meu repositório** | _https://github.com/…_ |
+| **Link do meu repositório** |https://github.com/eduogs/Aulas-de-Algoritmos-e-Programacao/blob/97875fda5670002c98739cc34088743b79385a8f/crud.py |
 | **Dupla de revisão (Campo 05)** | Samuel Denzel / Samuel Denzel |
 | **Função neste ciclo** |Eduardo Oliveira Gomes · Revisor do CRUD de um colega_ |
 
