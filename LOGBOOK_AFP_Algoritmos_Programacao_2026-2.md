@@ -233,31 +233,31 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **2a. Aprofundamento dos objetos de conhecimento (mínimo 2 referências com síntese da contribuição para a solução):**
 
-- **Referência 1:** _…_ — **Contribuição:** _…_
-- **Referência 2:** _…_ — **Contribuição:** _…_
+- Documentação oficial do Python, função `input()` (https://docs.python.org/3/library/functions.html#input) — **Contribuição:** mostra que `input()` lê uma linha digitada pelo usuário e devolve sempre `str`. Por isso o valor precisa ser guardado em uma variável e convertido com `int()` ou `float()` antes de qualquer cálculo.
+ 
+- Curso de Python, canal Curso em Vídeo (Gustavo Guanabara), (https://youtu.be/S9uPNppGsGo?si=OugKR7HMBC0uPtq8) — **Contribuição:** Um dado de uma varável do tipo `input` deve-se usar `f```string`.
 
 **2b. Hipótese revisada — o que mudou em relação ao Campo 01 e por quê:**
 
-> _…_
+> No Campo 01 eu previa uma lista simples, só com `append` e `remove`. Ao usar o laço `while` com `if`, `elif` e `else`, o código ficou menor e mais legível, porque o laço repete o menu sem eu reescrever as mesmas linhas, e as condicionais escolhem a ação (adicionar ou remover).
 
-**2c. Dimensionamento inicial de recursos (recurso, quantidade estimada, justificativa técnica — mínimo 3 itens):**
+**2c. Dimensionamento inicial de recursos (recurso, quantidade estimada, justificativa técnica — mínimo 3 itens):** 
 
 | RECURSO / MATERIAL / INSUMO | QUANTIDADE ESTIMADA | JUSTIFICATIVA TÉCNICA |
 |---|---|---|
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ |
+| Horas de estudo | 2 horas | Tempo estimado para dominar variáveis, tipos de dados, `input()` e conversão de tipos, com prática em casa. |
+| Arquivos do projeto (.py) | 5 (`aula1208.py`, `aula1908pa.py`, `aula2008.py`, `misto2.py`, `crud.py`) | Cada arquivo isola um conceito da aula, o que facilita testar e localizar erros. |
+| Casos de teste | 5 | Verificar entradas válidas, entrada em branco, texto onde se espera número, item inexistente na lista e valor negativo. |
+| Documentação oficial do Python | 1 | Fonte de referência para o comportamento de `input()` e dos tipos `str`, `int` e `float`. |
 
 #### Registro do Ciclo 02 — 19/08
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
+1. **Desafio do ciclo (em 1 frase):** Aprender a declarar variáveis de tipos diferentes e receber dados do usuário com input().
+2. **O que implementei (commits / arquivos / links):** `aula1908pa.py`, com a variável numero1 = 'x', uma chamada de `input()` e variáveis comentadas `(alimento, recheio1, recheio2)`.
+3. **Objeto(s) de conhecimento mobilizado(s):** variável, atribuição, tipo `str`, comentário (#), entrada de dados com `input()`.
+4. **Desvio ou erro encontrado + causa técnica:** o `input()` foi chamado sem guardar o resultado em uma variável, então o valor digitado se perde. Além disso, `input()` sempre devolve `str`, então, para fazer cálculo, seria preciso converter com `int()` ou `float()`.
+5. **Decisão de ajuste + fonte:**  Passei a guardar o retorno do `input()` em uma variável (atribuição) e a converter o tipo com `int()` ou `float()` quando preciso calcular, pois `input()` sempre devolve `str`. A decisão veio da explicação do professor em sala e da documentação oficial do Python (https://docs.python.org/3/library/functions.html#input), consolidada com prática em casa e em sala.
+6. **Feedback recebido e o que mudei:** Um colega de turma avaliou que o código estava bom, mas poderia melhorar na estrutura para simplificar. Por causa disso,passei a repetir o menu dentro de um único laço `while`.
+7. **Próximo passo:** Estudar operadores aritméticos, relacionais e lógicos e montar fluxogramas
 ## 🟢 CICLO 03 — 26/08 — Operadores, fluxogramas e paradigmas
 
 <details>
