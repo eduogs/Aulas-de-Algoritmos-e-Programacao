@@ -165,9 +165,9 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 **Checklist do Grupo 1**
 - [x] Identificação preenchida (app-base, link do repositório, dupla de revisão)
 - [x] Campo 01: 3 objetos de conhecimento, 3 lacunas, hipótese de até 5 linhas
-- [ ] Registros dos Ciclos 01, 02, 03 e 04 com os 7 itens
-- [ ] Campo 02: 2 referências com contribuição, hipótese revisada, 3 recursos
-- [ ] Commits no GitHub e painel atualizado
+- [x] Registros dos Ciclos 01, 02, 03 e 04 com os 7 itens
+- [x] Campo 02: 2 referências com contribuição, hipótese revisada, 3 recursos
+- [x] Commits no GitHub e painel atualizado
 
 ## 🟢 CICLO 01 — 12/08 — Preparação do laboratório e escolha do projeto
 
@@ -251,7 +251,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 | Documentação oficial do Python | 1 | Fonte de referência para o comportamento de `input()` e dos tipos `str`, `int` e `float`. |
 
 #### Registro do Ciclo 02 — 19/08
-1. **Desafio do ciclo (em 1 frase):** Aprender a declarar variáveis de tipos diferentes e receber dados do usuário com input().
+1. **Desafio do ciclo (em 1 frase):** Aprender a declarar variáveis de tipos diferentes e receber dados do usuário com `input()`.
 2. **O que implementei (commits / arquivos / links):** `aula1908pa.py`, com a variável numero1 = 'x', uma chamada de `input()` e variáveis comentadas `(alimento, recheio1, recheio2)`.
 3. **Objeto(s) de conhecimento mobilizado(s):** variável, atribuição, tipo `str`, comentário (#), entrada de dados com `input()`.
 4. **Desvio ou erro encontrado + causa técnica:** o `input()` foi chamado sem guardar o resultado em uma variável, então o valor digitado se perde. Além disso, `input()` sempre devolve `str`, então, para fazer cálculo, seria preciso converter com `int()` ou `float()`.
