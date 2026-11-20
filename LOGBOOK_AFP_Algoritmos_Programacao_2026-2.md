@@ -343,8 +343,8 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 | | |
 |---|---|
-| **Nome do estudante** | _…_ |
-| **Data de realização** | _…_ |
+| **Nome do estudante** |Eduardo Oliveira Gomes|
+| **Data de realização** | 20/11/2026 |
 | **Unidade curricular** | Algoritmos e Programação |
 | **Professor(a)** | Rondineli Seba Salomão |
 
