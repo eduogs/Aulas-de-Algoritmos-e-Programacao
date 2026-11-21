@@ -307,9 +307,9 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **Checklist do Grupo 2**
 - [ ] Checkpoint Conceitual feito conforme orientação do professor (20 min, sem consulta)
-- [ ] Campo 03: 2 achados com objeto, 1 desvio com causa técnica, 1 decisão com fonte
+- [x] Campo 03: 2 achados com objeto, 1 desvio com causa técnica, 1 decisão com fonte
 - [ ] Campo 04: ferramenta, pergunta íntegra, resumo, o que aceitei e o que questionei
-- [ ] Registros dos Ciclos 05, 06, 07 e 08 com os 7 itens (devolutiva da P1 no ciclo 06)
+- [x] Registros dos Ciclos 05, 06, 07 e 08 com os 7 itens (devolutiva da P1 no ciclo 06)
 - [ ] Commits no GitHub e painel atualizado
 
 ## 🟠 CICLO 03 (campos) — 26/08 — Checkpoint, Campo 03 e Campo 04
@@ -323,19 +323,22 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 - Critérios: *precisão conceitual*, *relação conteúdo-problema*, *qualidade do raciocínio*.
 - Se for insatisfatório, você recebe **feedback escrito em até 48h** e deve ajustar a investigação antes da avaliação somativa.
 - Se o professor aplicar o Checkpoint via GitHub, use o arquivo abaixo **só durante os 20 minutos**, com um único commit ao final.
-
+- **3a.** Percebi que a busca linear precisa guardar o item encontrado antes do `break`. No `aula0411.py`, o `break` está antes de qualquer atribuição a encontrado; por isso, a variável permanece None e a busca nunca devolve o registro. No `crud.py`, a mesma ideia funciona porque a flag `encontrado = True` é marcada dentro do `if` e a condição `not encontrado` encerra o laço `while`.
+- Percebi que o `crud.py` mantém três listas paralelas (`nomes`, `quantidades`, `preços`) sincronizadas apenas pelo índice. Por isso a remoção exige três operações (`quantidades.pop(i)`, `precos.pop(i) e nomes.remove(busca)), misturando acesso por posição e por valor.
 **Campo 03 — Execução e desvios** · *sábado 21/11, 23h59*
-- **3a.** Pelo menos **2 achados** que mudaram sua compreensão do problema, cada um com o **objeto de conhecimento** associado.
-- **3b.** Pelo menos **1 desvio** em relação ao Campo 02 (o que você planejou e não aconteceu) e a **causa técnica** — não vale "falta de tempo".
-- **3c.** Pelo menos **1 decisão de ajuste**, com justificativa e **fonte**, e o objeto de conhecimento mobilizado.
+  
+- **3b.** No dimensionamento (Campo 02c), planejei 5 casos de teste: entrada válida, entrada em branco, texto onde se espera número, item inexistente e valor negativo. O `crud.py` atende apenas 3: a entrada válida, a entrada em branco (aviso `AVISO_VAZIO` e nova leitura) e o item inexistente (mensagem "Item não encontrado."). Testei "abc" como quantidade e "-5" como preço: ambos foram aceitos e a listagem exibiu `- leite (qtd: abc) - R$ -5`. 
+-**Causa técnica:** O `input()` sempre devolve `str`, e eu gravo `quantidade` e `preço` nas listas sem converter com `int()` ou `float()`. A validação `while campo == ""` verifica apenas se a string é vazia (presença do dado); ela não verifica o tipo nem o domínio do valor (número maior que zero). Faltou tratamento de `ValueError` na conversão e uma comparação de limite (`> 0`).
+  
+- **3c.** **Decisão:** Validar e converter `quantidade` e `preco` no momento da leitura: um laço `while` True que lê o `input()`, converte com `int()` (quantidade) ou `float()` (preço) dentro de `try/except ValueError`, rejeita valores `<= 0` e só executa `break` quando o dado é válido. Descartei o método `str.isdigit()` porque ele recusa decimais (`"3.50"`) e negativos (`"-5"`), o que não distingue "texto inválido" de "número decimal válido". Com a conversão feita na entrada, `quantidades` passa a guardar `int` e `precos` guarda `float`, e a listagem formata o preço com `f"{preco:.2f}"`.
+**Fonte:** Documentação oficial do Python — int() (https://docs.python.org/3/library/functions.html#int), conversão de tipos `(int()` e `float())`, validação de entrada.
 
 **Campo 04 — Interação com IA** · *sábado 21/11, 23h59 · obrigatório e avaliado*
-- Registre **pelo menos uma** interação real com uma IA sobre o seu CRUD.
-- **4b.** Transcreva a pergunta **na íntegra** (copie e cole).
-- **4c.** Resuma a resposta em **um parágrafo** com as suas palavras.
-- **4d.** O que você **aceitou**, ligando ao objeto de conhecimento.
-- **4e.** O que você **questionou ou descartou**, com **argumento técnico ou fonte** (teste, documentação, livro). Dica: **rode o código** que a IA sugeriu antes de decidir.
-- **Print sem análise crítica = devolução imediata.** Se você aceitou tudo, volte e procure o que verificar.
+- Registre ** Print sem análise crítica = devolução imediata. Reproduzir a IA sem questionamento = reprovado.
+- **4b.**  Presciso de uma ajuda para o aviso de campo vazio e para a refatoração com `append`, `pop` e `remove`]
+- **4c.** A IA me orientou, de forma guiada, a repetir a leitura com `input()` dentro de um laço `while` enquanto o campo for uma string vazia, exibindo a mensagem de aviso a cada tentativa. Depois, ajudou a reorganizar o CRUD usando `append`, `pop` e `remove` sobre listas, a incluir o preço e a perguntar `"Você comprou tudo?"` ao sair, com despedida ou exibição da lista conforme a resposta.
+- **4d.** Aceitei guardar a mensagem na constante `AVISO_VAZIO`, que elimina a repetição do mesmo em vários pontos do código (uma variável com um único ponto de alteração). Por fim, aceitei o uso de `append` para inserir e de `pop(i)` e `remove()` para excluir.
+- **4e.** Questionei a suficiência da validação. Executei o `crud.py` com quantidade `abc` e preço `-5`; o programa aceitou os dois valores e a listagem exibiu `- leite (qtd: abc) - R$ -5`. O motivo é que `input()` devolve `str` e a comparação`== ""` só detecta vazio; ela não verifica tipo nem faixa de valores (documentação de `input()`: https://docs.python.org/3/library/functions.html#input). Por isso, não considerei o código "pronto" e registrei no Campo 03 a decisão de converter com `nint()`/`float()` e tratar `ValueError` .
 </details>
 
 ### 🧩 CHECKPOINT CONCEITUAL INDIVIDUAL
@@ -438,14 +441,14 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 05 — 09/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
+1. **Desafio do ciclo (em 1 frase):** Entender como o `for ... in range()` gera a sequência do contador e por que atribuir um valor a `i` antes do laço não altera o resultado.
+2. **O que implementei (commits / arquivos / links):** `aula0909.py`, com o enunciado "FOR IN RANGE com i = 0 e i = 5": a versão com `i = 0` ficou comentada e a versão ativa usa `i = 5` seguido de `for i in range(10): print(i)`.
+3. **Objeto(s) de conhecimento mobilizado(s):** Laço `for`, função `range()` (limite superior exclusivo), variável de controle e atribuição. Os operadores lógicos e as estruturas aninhadas desta etapa aparecem em `aula2608ap.py (x > 10 and y <= 4)` e, depois, no `crud.py: while i < len(nomes) and not encontrado` (com um `if` aninhado dentro do while) e `while resposta != "1" and resposta != "2"`. Em ambos, usei `and` porque as duas condições precisam ser verdadeiras ao mesmo tempo para o laço continuar.
+4. **Desvio ou erro encontrado + causa técnica:** O programa imprimiu os valores de 0 a 9 (10 valores), e não de 0 a 5. Causa: `range(10)` equivale a `range(0, 10)`, com `stop` exclusivo, e o `for` reatribui `i` a cada iteração, descartando o `i = 5` (ou `i = 0`) declarado antes.
+**Causa técnica**: `for i in range(10)` → esperado: 0 a 5 → obtido: 0 a 9 ✗. Com `range(0, 6)` → 0 a 5 ✓; com `range(5, 10)` → começa em 5 ✓.
+5. **Decisão de ajuste + fonte:** Passei a definir `start` e `stop` explicitamente em `range()`, sem depender de atribuição prévia à variável de controle. Fonte: documentação oficial do Python, tipo range (https://docs.python.org/3/library/stdtypes.html#range) e instrução for (https://docs.python.org/3/tutorial/controlflow.html#for-statements).
+6. **Feedback recebido e o que mudei:** Retorno da execução: a saída de 0 a 9 mostrou que o intervalo estava errado; a mudança definida é usar `range(0, 6)` para 0 a 5. Feedback de professor/colega: sem feedback externo neste ciclo.
+7. **Próximo passo:**Estudar `while`, `break` e `continue` e escolher quando usar `for` ou `while`.
 ## 🟠 CICLO 06 — 30/09 — Devolutiva da P1 + repetição: `for`, `while`, `break`, `continue`
 
 <details>
@@ -458,13 +461,14 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 06 — 30/09
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Percorrer listas com `for` e `enumerate()` e validar um valor digitado dentro de um laço `while True`.
+2. **O que implementei (commits / arquivos / links):** `aula3009.py`, com as listas `animais` e `animais_permitidos`, um `while True`, `for` com `enumerate()` e a `verificação nome_animal in animais_permitidos`.
+3. **Objeto(s) de conhecimento mobilizado(s):** laço `while` com `True` como condição, laço `for` sobre `lista`, `enumerate()` (par índice/valor), operador de pertinência `in`, `len()`, concatenação `+=` em lista, atribuição e escopo de variáveis. No CRUD, escolhi cada laço assim: o `for` na listagem (`for i in range(len(nomes`))), porque percorro todos os itens existentes; o `while` no menu (`while opcao != "5"`), na revalidação de campos (`while campo == ""`) e na busca (`while i < len(nomes) and not encontrado`), porque o número de repetições depende de uma condição, e não de um tamanho conhecido.
+4. **Desvio ou erro encontrado + causa técnica:** `while True` sem nenhum `break`: o laço nunca termina, mesmo sem o erro acima. **Causa:** não defini condição de saída.
+ -A verificação `if nome_animal in animais_permitidos` ficou dentro do `for`, repetindo o teste a cada elemento em vez de uma única vez. **Causa:** indentação (bloco errado).
+5. **Decisão de ajuste + fonte:** Usar nomes distintos (`for animal in animais_permitidos`) para preservar a lista `animais`; validar `nome_animal` uma única vez, antes de percorrer as listas; inserir com `animais.append(nome_animal)`; inicializar o contador fora do laço (ou usar `enumerate()`); e incluir uma condição de saída com `break`. **Fontes:** instrução `for` (https://docs.python.org/3/tutorial/controlflow.html#for-statements), `enumerate()` (https://docs.python.org/3/library/functions.html#enumerate) 
+6. **Feedback recebido (inclui devolutiva da P1) e o que mudei:** Retorno da execução: o `traceback` apontou a linha 16 e levou à descoberta da reatribuição do nome `animais`; a mudança definida é renomear a variável de laço. Feedback de professor/colega: sem feedback externo neste ciclo.
+7. **Próximo passo:** Estudar listas em profundidade (`índice`, `fatiamento` e `append`) e evitar reutilizar nomes de variáveis.
 
 ## 🟠 CICLO 07 — 07/10 — Listas: armazenamento e iteração
 
@@ -478,13 +482,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 07 — 07/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Armazenar valores em uma list, acessá-los por índice positivo e negativo, fatiá-los e acrescentar novos itens
+2. **O que implementei (commits / arquivos / links):** `aula2110.py`, com a lista `lista_de_carros` de 10 elementos de tipos mistos (`str`, `int`, `bool` e `float`), `len()`, indexação (`[0]` e `[-1]`), fatiamento (`[3:6:]` e `[2:-1:3]`) e `append()` com valor lido por `input()`.
+3. **Objeto(s) de conhecimento mobilizado(s):** `list` (estrutura ordenada, mutável e heterogênea), índice iniciado em 0 e índice negativo, fatiamento `[início:fim:passo]` com fim exclusivo, `len()`, `append()`, `input()` devolvendo` str`.
+4. **Desvio ou erro encontrado + causa técnica:** Escrevi `lista = []` e, na linha seguinte, `lista = (input("Digite aqui: "))`. A segunda atribuição sobrescreve a lista vazia por uma str (os parênteses apenas agrupam a expressão, não criam lista nem tupla), então a linha `lista = []` ficou sem utilidade. Além disso, o valor digitado entra na lista como `str`: com a entrada `70`, o elemento adicionado foi `'70'`, enquanto 67 e 69 são `int`, e a lista passou a guardar tipos diferentes para o mesmo tipo de dado.
+5. **Decisão de ajuste + fonte:** Usar uma variável com nome próprio, `novo_item = input("Digite aqui: ")`, sem reatribuir o nome da lista, e converter com `int()` quando o item for numérico antes do `append`. Fonte: documentação oficial do Python, métodos de lista (https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) e `input()` (https://docs.python.org/3/library/functions.html#input).
+6. **Feedback recebido e o que mudei:** Retorno da execução: a saída `'70'` entre aspas evidenciou o tipo `str`; a mudança definida é a variável `novo_item` com conversão. Feedback de professor/colega: sem feedback externo neste ciclo.
+7. **Próximo passo:** Estudar dicionários para representar um item com campos nomeados, em vez de listas paralelas.
 
 ## 🟠 CICLO 08 — 14/10 — Busca/consulta e introdução a dicionários e matrizes
 
@@ -499,14 +503,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 08 — 14/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
+1. **Desafio do ciclo (em 1 frase):** Representar cada registro como um dicionário (chave → valor) dentro de uma lista (catálogo)
+2. **O que implementei (commits / arquivos / links):** `aula0411.py`, com a lista `catalogo` de dicionários com as chaves `"pessoa"`, `"tipo"` e `"peso"`, o contador `proximo_codigo = 3`, o acesso `catalogo[0]["tipo"]` e uma busca por `for` com `if` `item["pessoa"] == codigo`.
+3. **Objeto(s) de conhecimento mobilizado(s):** `dict` (pares chave → valor), lista de dicionários, acesso por chave, `append()`, conversão `float(input(...))`, busca linear com variável sentinela (`encontrado = None`) e `break`. Cada registro virou um dicionário porque cada campo passa a ter nome (`item["peso"]`) em vez de depender da posição, o que evita as listas paralelas que usei no `crud.py` (`nomes`, `quantidades`, `precos`).
+4. **Desvio ou erro encontrado + causa técnica:** `TypeError: unsupported operand type(s) for +=: 'builtin_function_or_method' and 'int'` na linha `catalogo.append += 1` (verificado ao executar). **Causa técnica:** `append` é um método, e  `+=` tentou somar 1 a ele; a intenção era chamar `catalogo.append(novo)` e incrementar `proximo_codigo += 1`.Com os códigos 1 e 2, ambos existentes no catálogo, encontrado permaneceu `None` (verificado em teste isolado)
+5. **Decisão de ajuste + fonte:** Trocar por `catalogo.append(novo)` seguido de `proximo_codigo += 1`; escrever `encontrado = item` antes do `break`; testar `if` encontrado `is not None` depois do laço; e ler o tipo com `tipo = input("Tipo: ")`. Fontes: dicionários (https://docs.python.org/3/tutorial/datastructures.html#dictionaries), métodos de lista (https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+6. **Feedback recebido e o que mudei:** Retorno da execução: o `traceback` da linha 16 e a busca devolvendo `None` mostraram os dois defeitos; as mudanças definidas estão no item 5. Feedback de professor/colega:sem feedback externo neste ciclo.
+7. **Próximo passo:** Estudar atualização e exclusão (CRUD completo) e avaliar migrar o `crud.py` de três listas paralelas para uma lista de dicionários.
 ---
 
 # 🔵 GRUPO 3 — prazo quinta 26/11 às 23h59
