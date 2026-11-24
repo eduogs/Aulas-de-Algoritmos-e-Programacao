@@ -410,23 +410,23 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 > **Obrigatório e avaliado. Print sem análise crítica = devolução imediata. Reproduzir a IA sem questionamento = reprovado.**
 
-**4a. Ferramenta:** _…_  **Data:** _DD/MM/AAAA_
+**4a. Ferramenta:** Gemini  **Data:** _18/11/2026_
 
 **4b. Pergunta formulada (transcrita integralmente):**
 
-> _…_
+> Estou implementando uma pilha em Python usando uma lista normal para testar remoção do último elemento e também usando `append` e `remove` num CRUD simples. Como o `while` se comporta se eu remover itens de uma lista enquanto percorro ela, e qual a diferença prática entre usar lista como pilha e usar `remove`?
 
 **4c. Resposta da IA (resumida em parágrafo):**
 
-> _…_
+> A IA explicou que remover elementos de uma lista durante um laço pode pular itens ou causar comportamento inesperado se o índice mudar, sugeriu percorrer uma cópia ou usar `while` com cuidado, e indicou que para pilha o ideal é inserir com `append` e remover sempre o último elemento, enquanto `remove` busca e apaga um valor específico (não necessariamente o último).
 
 **4d. O que aceitei — com referência ao objeto de conhecimento do componente:**
 
-> _…_
+> Aceitei a distinção entre inserir/remover no final para simular o comportamento de pilha e usar `remove` para excluir um elemento específico pelo valor, relacionando diretamente aos objetos Listas e pilhas e Funções (no contexto de manipulação de listas em `crud.py`), além do alerta de que alterar uma lista enquanto se itera sobre ela exige atenção à condição de parada nos Laços de repetição.
 
 **4e. O que questionei ou descartei — com argumento técnico ou fonte:**
 
-> _…_
+> Questionei a ideia de tratar `remov` e como operação padrão de pilha, pois `list.remove(x)` procura a primeira ocorrência do valor x a partir do início da lista e levanta `ValueError` se o valor não existir — o que foge da regra de remover sempre o último elemento inserido (LIFO) e exige verificação prévia ou tratamento de exceção conforme a documentação oficial do Python (`collections.deque` ou `list.pop()` para comportamento de pilha).
 
 ## 🟠 CICLO 05 — 09/09 — Condicionais aninhadas e operadores lógicos
 
@@ -519,12 +519,12 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 > ⚠️ O prazo vem **um dia depois da P2 (25/11)**. Os Campos 06 e 07 dependem de todo o Logbook: deixe-os para o final, mas **adiante o rascunho do 6c e do 7a/7b antes da Defesa (18/11)**.
 
 **Checklist do Grupo 3**
-- [ ] Registros dos Ciclos 09, 10, 11 e 12 com os 7 itens
-- [ ] Campo 05: duas revisões (Ciclos 09 e 12), blocos 5a a 5e
-- [ ] Campo 06: decisão autônoma, lacuna com plano, pergunta da banca com 5 linhas ou mais
-- [ ] Campo 07: 7a a 7e, com 3 objetos, 2 equívocos corrigidos e transferência
-- [ ] Coerência entre Campo 01 e Campo 07
-- [ ] Painel de acompanhamento completo
+- [x] Registros dos Ciclos 09, 10, 11 e 12 com os 7 itens
+- [x] Campo 05: duas revisões (Ciclos 09 e 12), blocos 5a a 5e
+- [x] Campo 06: decisão autônoma, lacuna com plano, pergunta da banca com 5 linhas ou mais
+- [x] Campo 07: 7a a 7e, com 3 objetos, 2 equívocos corrigidos e transferência
+- [x] Coerência entre Campo 01 e Campo 07
+- [x] Painel de acompanhamento completo
 
 ## 🔵 CICLO 09 — 21/10 — Atualização e exclusão: CRUD completo
 
@@ -576,7 +576,7 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 |---|---|---|---|---|
 | 1. Clonar/abrir o repositório do colega e executar o CRUD  | Eduardo / Samuel | _24/11 | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
 | 2. Rodar os 7 casos de teste planejados (5b) | Eduardo / Samuel | _24/11_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 3. Ler o código e conferir laços, condicionais e estruturas de dados | Eduardo / Samue  | _24/11_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 3. Ler o código e conferir laços, condicionais e estruturas de dados | Eduardo / Samuel  | _24/11_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
 | 4. Registrar os achados (o que está bom, o que quebrou e como reproduzir) | Eduardo / Samuel | _D2411_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
 | 5. Devolver o feedback ao autor | Eduardo / Samuel | _24/11_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
 
