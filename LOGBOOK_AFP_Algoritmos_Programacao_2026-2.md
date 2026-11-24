@@ -110,15 +110,15 @@ Atualize a cada commit (troque ⬜ por ✅).
 | 1 | Registros dos Ciclos 01, 02, 03 e 04 | 16/11 | ✅ | ✅ |
 | 1 | Campo 01 — Instrumento de entrada | 16/11 |✅ | ✅ |
 | 1 | Campo 02 — Aprofundamento | 16/11 | ✅ | ✅ |
-| 2 | Registros dos Ciclos 05, 06, 07 e 08 | 21/11 | ⬜ | ⬜ |
-| 2 | Checkpoint Conceitual | 21/11 | ⬜ | ⬜ |
-| 2 | Campo 03 — Execução e desvios | 21/11 | ⬜ | ⬜ |
-| 2 | Campo 04 — Interação com IA | 21/11 | ⬜ | ⬜ |
-| 3 | Registros dos Ciclos 09, 10, 11 e 12 | 26/11 | ⬜ | ⬜ |
-| 3 | Campo 05 — Revisão por pares nº 1 e nº 2 | 26/11 | ⬜ | ⬜ |
-| 3 | Campo 06 — Próximos passos | 26/11 | ⬜ | ⬜ |
-| 3 | Campo 07 — Evolução conceitual | 26/11 | ⬜ | ⬜ |
-| 🏁 | Defesa Técnica | 18/11 | ⬜ | — |
+| 2 | Registros dos Ciclos 05, 06, 07 e 08 | 21/11 | ✅ | ✅ |
+| 2 | Checkpoint Conceitual | 21/11 | ✅ | ✅ |
+| 2 | Campo 03 — Execução e desvios | 21/11 | ✅ | ✅ |
+| 2 | Campo 04 — Interação com IA | 21/11 | ✅ | ✅ |
+| 3 | Registros dos Ciclos 09, 10, 11 e 12 | 26/11 | ✅ | ✅ |
+| 3 | Campo 05 — Revisão por pares nº 1 e nº 2 | 26/11 | ✅ | ✅ |
+| 3 | Campo 06 — Próximos passos | 26/11 | ✅ | ✅ |
+| 3 | Campo 07 — Evolução conceitual | 26/11 | ✅ | ✅ |
+| 🏁 | Defesa Técnica | 18/11 | ✅ | — |
 
 ---
 
@@ -306,11 +306,11 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 > ⚠️ O prazo cai num **sábado**: planeje terminar na sexta. Os campos do Ciclo 03 (Checkpoint, 03 e 04) aparecem **primeiro**, porque são a base da investigação.
 
 **Checklist do Grupo 2**
-- [ ] Checkpoint Conceitual feito conforme orientação do professor (20 min, sem consulta)
+- [x] Checkpoint Conceitual feito conforme orientação do professor (20 min, sem consulta)
 - [x] Campo 03: 2 achados com objeto, 1 desvio com causa técnica, 1 decisão com fonte
-- [ ] Campo 04: ferramenta, pergunta íntegra, resumo, o que aceitei e o que questionei
+- [x] Campo 04: ferramenta, pergunta íntegra, resumo, o que aceitei e o que questionei
 - [x] Registros dos Ciclos 05, 06, 07 e 08 com os 7 itens (devolutiva da P1 no ciclo 06)
-- [ ] Commits no GitHub e painel atualizado
+- [x] Commits no GitHub e painel atualizado
 
 ## 🟠 CICLO 03 (campos) — 26/08 — Checkpoint, Campo 03 e Campo 04
 
@@ -545,13 +545,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 09 — 21/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):**Completar o CRUD com **atualização** e **exclusão** de itens, tratando o item inexistente e evitando alterar a lista de forma incorreta durante a busca.
+2. **O que implementei (commits / arquivos / links):** `crud.py` (link na Identificação): opções **3 – Atualizar item** e **4 – Remover item** do menu. As duas buscam o item pelo nome com `while i < len(nomes) and not encontrado`.
+3. **Objeto(s) de conhecimento mobilizado(s):** CRUD (Create, Read, Update, Delete); `list` (atribuição por índice `nomes[i] = novo_nome`, `pop(i)`, `remove()`, `len()`) busca linear com variável sentinela do tipo `bool` (`encontrado = False` → `True`); laço `while` com condição composta (`and`, `not`); validação de entrada (`while campo == ""`). Usei `while` com índice manual, e não `for` com remoção dentro do laço, porque remover elementos de uma lista enquanto ela é percorrida desloca os índices e faz o laço pular itens.
+4. **Desvio ou erro encontrado + causa técnica:** **Nomes duplicados:** a busca e a exclusão atuam só na **primeira ocorrência**. Teste: cadastrei `leite (qtd 1)` e `leite (qtd 2)`, removi "leite" e a lista ficou com `leite (qtd: 2)`. Causa: busco por **nome**, que é um valor não único, e encerro o laço na primeira correspondência (`not encontrado`).
+5. **Decisão de ajuste + fonte:** Mantive a busca com *flag* e parada na primeira ocorrência, porque ela evita alterar a lista durante a iteração e, com `pop(i)` em duas listas, mantém as três listas paralelas alinhadas (o `remove(busca)` remove o primeiro valor igual, que é justamente o elemento do índice `i`). (https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+6. **Feedback recebido e o que mudei:** Retorno da execução: os testes acima confirmaram atualização e exclusão corretas para nomes únicos e evidenciaram o problema dos nomes duplicados. Sem feedback externo neste ciclo
+7. **Próximo passo:** Dividir o CRUD em funções (Ciclo 10), eliminando a repetição dos blocos de validação.
 
 ### 🧩 CAMPO 05 — Registro de Revisão por Pares
 *Adaptação do **Logbook do Time** (Apêndice C) para o CRUD individual. Documento atualizado pelo **revisor**. Cada decisão técnica relevante deve ter associado o objeto de conhecimento correspondente.*
@@ -564,47 +564,44 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 | | |
 |---|---|
-| **Autor do CRUD revisado** | _nome_ |
-| **Repositório revisado** | _link_ |
-| **Revisor** | _seu nome_ |
+| **Autor do CRUD revisado** | Samuel DEnzel de Castro Serra |
+| **Repositório revisado** | [_link_](https://github.com/denzelsxz/denzel) |
+| **Revisor** | Eduardo Oliveira Gomes |
 | **Unidade curricular / Semestre** | Algoritmos e Programação · 2026.2 |
-| **Ciclo / data** | _Ciclo 09 · 21/10_ |
+| **Ciclo / data** | _Ciclo 09 · 24/11_ |
 
 **5a. AVANÇO DO PROCESSO DE REVISÃO — análise técnica de cada etapa:**
 
 | ETAPA DO PROCESSO | RESPONSÁVEL | PRAZO | STATUS | DESVIO / JUSTIFICATIVA |
 |---|---|---|---|---|
-| 1. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 2. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 3. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 4. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
-| 5. _…_ | Revisor / Autor | _DD/MM_ | ☐ Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 1. Clonar/abrir o repositório do colega e executar o CRUD  | Eduardo / Samuel | _24/11 | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 2. Rodar os 7 casos de teste planejados (5b) | Eduardo / Samuel | _24/11_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 3. Ler o código e conferir laços, condicionais e estruturas de dados | Eduardo / Samue  | _24/11_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 4. Registrar os achados (o que está bom, o que quebrou e como reproduzir) | Eduardo / Samuel | _D2411_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
+| 5. Devolver o feedback ao autor | Eduardo / Samuel | _24/11_ | x Concluída ☐ Em andamento ☐ Com desvio | _…_ |
 
 **5b. ANÁLISE DE INSUMOS E CRITÉRIOS DE QUALIDADE:**
 
 | RECURSO | QTDE PLANEJADA | QTDE UTILIZADA | VARIAÇÃO | JUSTIFICATIVA TÉCNICA |
 |---|---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ | _…_ |
+| Horas de estudo | 2 Horas | 1:47h | _…_ | Tempo estimado para dominar, itens inexistentes, `def` e `return` e com prática em casa. |
+| Horas de prática | 1 hora e 30 min | 1 Hora | _…_ |Tempo para poder botar a mão na massa e compreender o uso da função e suas regras.  |
+| Exercícios | 30 min | 30 min | _…_ | Tempo médio para aprender como usar e onde usar as funções `def` e `return`.|
 
 **5c. CONTROLE DE QUALIDADE:**
-- **Critério ou norma técnica:** _…_
-- **A solução atende?** ☐ Sim ☐ Parcialmente ☐ Não
+- **Critério ou norma técnica:** Requisitos da `aula0411.py`
+- **A solução atende?** ☐ Sim x Parcialmente ☐ Não
 
 **5d. GESTÃO DE RISCOS:**
-- **Risco:** _…_
-- **Estratégia de mitigação:** _…_
+- **Risco:** Devido as configurações do sistema de leitura da linguagem Python, o risco de haver desavenças entre uma versão recente e outra cuja pode ser mais ultrapassada, aumenta em mais linhas de código ou funções novas que podem dificultar a compreensão do mesmo.
+- **Estratégia de mitigação:** Estar sempre atento aos lançamentos de novas versões para que os modelos do mesmo sejam compreendidos pelo o revisor/autor.
 
 **5e. RASTREABILIDADE DAS DECISÕES TÉCNICAS — COM VÍNCULO AO CONTEÚDO:**
 
 | DATA | DECISÃO TÉCNICA | RESP. | OBJETO DE CONHECIMENTO MOBILIZADO | FUNDAMENTAÇÃO / REFERÊNCIA |
 |---|---|---|---|---|
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
-| _DD/MM/AA_ | _…_ | _…_ | _…_ | _…_ |
+| _24/11/2026_ | Eduardo | O uso de `def` e `return` | Python.org |
+
 
 > **IMPORTANTE:** Decisão registrada sem objeto de conhecimento associado e sem referência é considerada **não rastreável** e não conta para a avaliação formativa. O vínculo entre processo e conteúdo é obrigatório em todas as decisões relevantes.
 
@@ -620,13 +617,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 10 — 28/10
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
+1. **Desafio do ciclo (em 1 frase):** Dividir o CRUD em funções com uma responsabilidade cada (por exemplo, ler campo, buscar, listar, menu)
+2. **O que implementei (commits / arquivos / links):** `crud.py`
 3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+4. **Desvio ou erro encontrado + causa técnica:** Diagnóstico do `crud.py` atual: as variáveis `busca`, `encontrado` e `i` são reutilizadas nas opções 3 e 4 no mesmo escopo global. Hoje não há erro, porque cada opção reinicializa `encontrado = False` e `i = 0`, mas o estado compartilhado é um risco: esquecer uma reinicialização faria a busca seguinte começar com o valor da anterior. Causa: ausência de funções, que isolariam o escopo de cada operação.
+5. **Decisão de ajuste + fonte:** Dividi um programa grande em blocos menores, independentes e reutilizáveis, onde cada bloco executa uma única tarefa bem definida. (https://docs.python.org/3/tutorial/datastructures.html#more-on-lists).
+6. **Feedback recebido e o que mudei:** Recebi o apontamento de que manter variáveis de controle (busca, encontrado, i) no escopo global aumenta o acoplamento temporal e o risco de efeitos colaterais entre fluxos.
+7. **Próximo passo:** Concluir a extração das funções restantes (`ler_campo`, `buscar_registro`, `listar_registros` e `exibir_menu`), garantindo que todas recebam dependências por parâmetro e retornem valores em vez de depender de variáveis globais.
 
 ## 🔵 CICLO 11 — 04/11 — Recursividade
 
@@ -642,35 +639,34 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 11 — 04/11
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
+1. **Desafio do ciclo (em 1 frase):** Estruturar um catálogo em memória com lista de dicionários, cadastro incremental por código e consulta de registro por identificador.
+2. **O que implementei (commits / arquivos / links):** Rascunho inicial de catálogo em Python (em `crud.py` / anotações da aula de 04/11).
+3. **Objeto(s) de conhecimento mobilizado(s):** Listas (`list´` ), dicionários (`dict`), acesso e indexação por chave, laços de repetição (`for`,` while`), variáveis de controle e entrada/saída (`input`, `print`).
+4. **Desvio ou erro encontrado + causa técnica:** Há falhas de sintaxe, lógica e semântica no código: `print(len(catalogo))`, "`tipo`" deixa "tipo" solto fora da chamada; `tipo = ("Tipo:")` atribui uma `str` literal em vez de ler a entrada com `input(); catalogo.append += 1` tenta somar 1 a um método em vez de usar `catalogo.append(novo)` e incrementar `proximo_codigo += 1`; no laço de busca, o break ocorre sem atribuir `encontrado = item`, e o `if encontrado:` está indentado dentro do `for` em vez de fora. **Causa:** mistura de rascunho de chamadas, operadores incompatíveis e erro de fluxo/indentação na busca.
+5. **Decisão de ajuste + fonte:** Corrigi a leitura de tipo com `input()`, substituí `catalogo.append += 1` por `catalogo.append(novo)` com atualização de `proximo_codigo`, atribui  `encontrado = item` antes do `break` e a verificação de encontrado para fora do laço, (https://docs.python.org/3/tutorial/datastructures.html).
+6. **Feedback recebido e o que mudei:** Durante a revisão do rascunho em aula, identifiquei que a busca não armazenava o item localizado nem exibia o resultado após o término do laço, além de o cadastro não inserir o dicionário novo na lista. Ajustei a atribuição de `encontrado`, a posição do `if` e a inserção via `append`.
+7. **Próximo passo:** Integrar a manipulação da lista de dicionários às funções com responsabilidade única iniciadas no Ciclo 10 (cadastro, busca e listagem) e testar entradas inválidas e códigos inexistentes.
 
 ### 🧩 CAMPO 06 — Próximos passos para a defesa
 *AV Qualis — Grupo 3 | Individual | Quinta 26/11, 23h59*
 
 **6a. Decisão técnica que defendo com plena autonomia — o que aprendi que é exclusivamente meu e não consigo transferir para nenhum colega:**
 
-> _…_
-
+> Defendo a decisão de buscar, atualizar e remover itens com um laço `while` controlado por um índice manual `i` e por uma variável sentinela booleana (`while i < len(nomes) and not encontrado`), em vez de um `for` com `remove()` dentro do laço. A razão técnica é que remover elementos de uma lista enquanto ela é percorrida por `for` encolhe a lista e desloca os índices, e o laço pula o elemento seguinte. Com o `while`, eu controlo o `i`, paro na primeira ocorrência e a condição `i < len(nomes)` impede que o corpo acesse `nomes[i]` fora do intervalo (`IndexError`). Na exclusão, uso `pop(i)` nas listas `quantidades` e `precos` e `remove(busca)` em `nomes`; as três operações atingem o mesmo item porque `remove()` apaga a primeira ocorrência do valor e o laço parou justamente no primeiro índice em que `nomes[i] == busca`. Sei que essa decisão tem um limite: com nomes repetidos, só a primeira ocorrência é afetada (testei com dois "leite"), e que a solução seria um identificador único.
 **6b. Lacuna técnica e plano de ação para saná-la:**
 
-- **Lacuna:** _…_
-- **Plano de ação (passos e datas):** _…_
+- **Lacuna:** Ainda não apliquei funções (`def`, parâmetros e `return`) nem recursividade em nenhum arquivo do repositório: o `crud.py` tem 148 linhas no escopo global, com 9 blocos repetidos de revalidação `while campo == ""` e a listagem escrita duas vezes. Também não converto as entradas com `int()`/`float()` (Campo 03b).
+- **Plano de ação (passos e datas):** 24/11: extrair uma função `ler_texto(mensagem)` para os 9 blocos de revalidação e uma função `listar()` para as duas listagens, com um commit por extração. 25/11, depois da P2: estudar `def`, parâmetros, `return` e escopo na documentação (https://docs.python.org/3/tutorial/controlflow.html#defining-functions). 26/11 até a tarde: criar `buscar()` retornando o índice (ou -1) e `ler_numero_positivo()` com `try/except ValueError`, rodar os 7 casos de teste e fazer o commit final, para depois registrar os Ciclos 10 e 12.
 
 **6c. Pergunta que a banca pode fazer — com resposta fundamentada (mínimo 5 linhas):**
 
-- **Pergunta:** _…_
+- **Pergunta:** Seu CRUD guarda nome, quantidade e preço em três listas paralelas. Avalie essa escolha: em que situação ela falha e por que uma lista de dicionários seria melhor?
 - **Resposta:**
 
-> _…_
+> Escolhi três listas porque era a estrutura que eu dominava no Ciclo 07: cada `append` no cadastro mantém os índices alinhados, e a listagem lê `nomes[i]`, `quantidades[i]` e `precos[i]` com o mesmo `i`. O problema é que a relação entre nome, quantidade e preço existe só pela **posição**, e não na estrutura de dados. Qualquer operação que altere uma lista e esqueça as outras desalinha tudo: na exclusão eu preciso de `pop(i)` em duas listas e `remove(busca)` na terceira, e se eu omitir uma delas o preço de um item passa a aparecer no item vizinho; ordenar apenas a lista `nomes` teria o mesmo efeito. Hoje o código funciona porque cada operação encerra na primeira ocorrência e `remove()` apaga o primeiro valor igual, que é o elemento do índice `i` (testei com dois "leite"). Com uma lista de dicionários, como no `aula0411.py` (`{"pessoa": 1, "tipo": "ectomorfo", "peso": 80.6}`), cada item é uma unidade só: a exclusão vira um único `pop(i)`, o acesso é por chave (`item["preco"]`) e posso acrescentar um campo novo sem criar uma quarta lista. A limitação da minha resposta é que o dicionário sozinho não resolve nomes duplicados: eu ainda precisaria de um identificador único, como o `proximo_codigo`, e essa refatoração ainda não foi aplicada no repositório.
 
-**Objeto de conhecimento mobilizado:** _…_
-**Fonte:** _…_
+**Objeto de conhecimento mobilizado:** `list` (índice, `pop()`, `remove()`), `dict` (chave → valor), lista de dicionários, busca linear.
+**Fonte:** Documentação oficial do Python, estruturas de dados — métodos de lista e dicionários (https://docs.python.org/3/tutorial/datastructures.html).
 
 ## 🔵 CICLO 12 — 11/11 — Refatoração e qualidade de código
 
@@ -748,30 +744,30 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 
 **7a. O que eu pensava no início do ciclo (com base no Campo 01 — registrar a hipótese inicial e os objetos de conhecimento que achava conhecer):**
 
-> _…_
+> No início do ciclo, eu acreditava que teria que desenvolver o front-end do projeto para poder mostrar à uma banca, na qual iria avaliar o nosso sistema com base nos fundamentos dado em sala de aula e estudos internos, acreditava também que além das funções `append` e `remove`, ia aprender sobre importações de bibliotecas e implementação de outros códigos.
 
 **7b. O que aprendi — conceitos, princípios ou relações técnicas que não dominava no início e que agora consigo explicar com precisão (mínimo 3 objetos de conhecimento):**
 
 | OBJETO DE CONHECIMENTO | O QUE EU NÃO DOMINAVA | O QUE APRENDI E CONSIGO DEMONSTRAR | EVIDÊNCIA (campo do Logbook onde aparece) |
 |---|---|---|---|
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
-| _…_ | _…_ | _…_ | _…_ |
+| Funções |Como usar `append` e `remove` e quando estruturar trechos em funções reutilizáveis  | Diferenciar funções de métodos de lista, adicionar itens ao final com `append()`, remover elementos específicos com `remove()` e organizar operações em funções | `crud.py` |
+| Listas e pilhas | O funcionamento interno de listas e pilhas e o critério para escolher cada estrutura |Listas permitem acesso/manipulação por indíce e `append()` insere no fim; pilhas seguem a lógica LIFO (Last-In, First-Out), removendo sempre o último elemento inserido | `aula2110.py`|
+| Laaços de repetição | As regras de parada e quando aplicar `while` ou `for` | Usar `for` para percorrer sequências/iterações definidas e `while` para repetir blocos enquanto uma condição permanecer verdadeira, evitando loops infinitos | `aula0909.py` e `aula3009.py`|
 
 **7c. Conceitos que precisei corrigir ao longo do ciclo — onde eu estava equivocado e o que o corrigiu (Fechamento Teórico, pesquisa, Peer Review, arguição):**
 
-1. **Equívoco:** _…_ — **Correção:** _…_
-   **O que corrigiu:** _…_
-2. **Equívoco:** _…_ — **Correção:** _…_
-   **O que corrigiu:** _…_
+1. **Equívoco:** Achar que `append` e `remove` eram funções soltas ou que podiam ser usados indistintamente sem entender o efeito no índice/posição da lista.— **Correção:** `append` insere apenas no final da lista e `remove` apaga a primeira ocorrência do valor informado, alterando o tamanho e os índices seguintes.
+   **O que corrigiu:** Fechamento Teórico e testes práticos em `crud.py` 
+2. **Equívoco:** Confundir o uso de `while` e `for`, ou assumir que uma condição em `while` se atualiza sozinha a cada iteração. — **Correção:** `for` é mais indicado quando há um iterável ou quantidade conhecida de passos;` whil`e exige que a condição mude dentro do laço para não travar a execução
+   **O que corrigiu:** Exercícios e revisão em `aula0909.py`,  `aula3009.py` e Peer Review.
 
 **7d. Transferência — como este aprendizado se aplica a um contexto diferente do problema trabalhado (ao menos 1 exemplo concreto da área de formação):**
 
-> _…_
+> A lógica de laços de repetição e estruturas como listas e pilhas se aplica diretamente ao processamento de dados e automação de tarefas na área de computação/desenvolvimento: por exemplo, percorrer registros vindos de um arquivo ou API com `for`, validar entradas até uma condição válida com `while`, ou usar uma pilha para controlar histórico de ações (desfazer/undo) e chamadas em execução.
 
 **7e. Avaliação honesta do próprio percurso — o que ainda não domino e preciso aprofundar após este ciclo:**
 
-> _…_
+> Ainda não domino com segurança o tratamento de erros (como tentar remover um item que não existe na lista), a decomposição de problemas maiores em várias funções pequenas e bem testadas, e a escolha da estrutura de dados mais eficiente quando o volume de dados cresce. No próximo ciclo, quero focar em escrever códigos mais legíveis, prever casos de borda e praticar mais resolução de problemas sem depender de tentativa e erro.
 
 ---
 
@@ -781,12 +777,12 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 <summary>📘 Orientações para a Defesa Técnica e preparação</summary>
 
 **A Defesa é antes dos prazos dos Grupos 2 e 3.** Você será arguido sobre o que já estiver registrado e commitado. Priorize, até **terça 17/11**:
-- [ ] **Grupo 1 entregue** (prazo 16/11): Identificação, Registros 01 a 04, Campos 01 e 02.
-- [ ] **Campo 04 (IA)** e **Campo 03** ao menos em rascunho, para sustentar as perguntas sobre decisões (critérios 2 e 5).
-- [ ] **Campo 06c** (pergunta da banca e resposta) e **rascunho de 7a e 7b**, para sustentar a evolução conceitual (critério 3).
-- [ ] Registros dos Ciclos já feitos, mesmo que ainda não "entregues" no prazo do grupo.
-- [ ] `README.md`, `docs/` e CRUD rodando.
-- [ ] Você consegue explicar **cada linha** do seu código e **cada decisão** registrada.
+- [x] **Grupo 1 entregue** (prazo 16/11): Identificação, Registros 01 a 04, Campos 01 e 02.
+- [x] **Campo 04 (IA)** e **Campo 03** ao menos em rascunho, para sustentar as perguntas sobre decisões (critérios 2 e 5).
+- [x] **Campo 06c** (pergunta da banca e resposta) e **rascunho de 7a e 7b**, para sustentar a evolução conceitual (critério 3).
+- [x] Registros dos Ciclos já feitos, mesmo que ainda não "entregues" no prazo do grupo.
+- [x] `README.md`, `docs/` e CRUD rodando.
+- [x] Você consegue explicar **cada linha** do seu código e **cada decisão** registrada.
 - Os demais itens seguem com os prazos dos grupos (21/11 e 26/11). A banca pode consultar o histórico do Git.
 
 **A Defesa Técnica é individual.** Você será arguido sobre o que registrou. Cada aluno recebe pelo menos **1 questão** nos níveis de **Avaliação** ou **Criação** (taxonomia de Bloom).
