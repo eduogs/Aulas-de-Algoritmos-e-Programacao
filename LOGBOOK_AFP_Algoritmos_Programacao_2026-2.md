@@ -684,14 +684,13 @@ Cada ciclo tem sua própria seção abaixo, já com o modelo. Se precisar de esp
 </details>
 
 #### Registro do Ciclo 12 — 11/11
-1. **Desafio do ciclo (em 1 frase):** _…_
-2. **O que implementei (commits / arquivos / links):** _…_
-3. **Objeto(s) de conhecimento mobilizado(s):** _…_
-4. **Desvio ou erro encontrado + causa técnica:** _…_
-5. **Decisão de ajuste + fonte:** _…_
-6. **Feedback recebido e o que mudei:** _…_
-7. **Próximo passo:** _…_
-
+1. **Desafio do ciclo (em 1 frase):** Revisar e aprimorar a estrutura do sistema Marketplace, aplicando os conhecimentos adquiridos durante a disciplina para melhorar a organização.
+2. **O que implementei (commits / arquivos / links):** Realizei uma revisão do código do sistema Marketplace, buscando melhorar sua organização e legibilidade. Reorganizei funções, revisei trechos de melhorias e aprimorei a lógica de busca dos produtos. Essas alterações foram desenvolvidas para tornar o código mais organizado e facilitar a compreensão e a manutenção das funcionalidades do CRUD.
+3. **Objeto(s) de conhecimento mobilizado(s):** Refatoração de código. Modularização e funções `def`. Legibilidade e organização. Lógica de busca. Estruturas de dados.
+4. **Desvio ou erro encontrado + causa técnica:** Durante a revisão do sistema Marketplace, não foram encontrados erros ou falhas graves no funcionamento do código. O trabalho nessa etapa foi direcionado principalmente ao aprimoramento da organização, da legibilidade e da estrutura das funções, buscando facilitar a manutenção e a compreensão do sistema.
+5. **Decisão de ajuste + fonte:** Decidir verificar a estrutura do código por conta própria, analisando a organização das funções e a lógica de busca dos produtos. Como não encontrei erros significativos, concentrei os ajustes na melhoria da legibilidade e da organização do sistema. Essa decisão foi baseada nos conhecimentos adquiridos durante a disciplina, principalmente sobre funções, modularização e refatoração de código.
+6. **Feedback recebido e o que mudei:** Durante essa etapa, recebi uma análise do meu colega Samuel, que explicou o código e apresentou sua opinião geral sobre o sistema Marketplace. Embora não tenha sugestões específicas, esta avaliação proporcionou uma visão externa sobre a organização e o funcionamento do projeto, contribuindo para minha reflexão sobre a qualidade do código.
+7. **Próximo passo:** Consolidar os conhecimentos adquiridos durante a disciplina, avaliar a evolução do sistema Marketplace e identificar novas oportunidades de aprimoramento, buscando desenvolver códigos cada vez mais organizados, eficientes e simples de manter.
 ### 🧩 CAMPO 05 — Registro de Revisão por Pares (revisão nº 2)
 
 | | |
